@@ -76,3 +76,4 @@ The application relies on several key R packages:
 - plotly: Creates interactive, professional-looking plots.
 
 - anomalyr: A custom package that contains the Metric and Model classes used for the time-series forecasting logic a direct fork from occmundial/healthr package.
+
