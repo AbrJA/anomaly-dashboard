@@ -1,4 +1,4 @@
-library(healthr)
+library(anomalyr)
 library(data.table)
 
 metric <- Metric$new()
@@ -18,11 +18,18 @@ function(input, output, session) {
     datatable(data_train(), options = list(dom = "tpi"))
   })
 
-  output$plot_train <- renderPlot({
+  output$plot_train <- renderPlotly({
     dt <- data_train()
     index <- sort(sample.int(nrow(dt), 0.1 * nrow(dt)))
     dt <- dt[index]
-    plot(dt$timestamp, dt$value, type = "l", xlab = "Timestamp", ylab = "Value", col = "blue")
+    plot_ly() %>%
+      add_lines(
+        x = dt$timestamp,
+        y = dt$value,
+        name = "Value",
+        line = list(color = 'blue', width = 1L)
+      ) %>%
+      layout(title = "Training Data", xaxis = list(title = "Timestamp"), yaxis = list(title = "Value"))
   })
 
   output$summary_train <- renderDT({

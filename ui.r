@@ -16,7 +16,7 @@ page_navbar(
         title = "View",
         nav_panel("Summary", DTOutput("summary_train"), hr(), DTOutput("metrics_model")),
         nav_panel("Table", DTOutput("table_train")),
-        nav_panel("Plot", plotOutput("plot_train"))
+        nav_panel("Plot", plotlyOutput("plot_train"))
       )
     )
   ),
@@ -39,3 +39,6 @@ page_navbar(
     )
   )
 )
+
+# sudo docker build -t dashboard .
+# sudo docker run -p 8000:8000 --name dashboard-cont dashboard
