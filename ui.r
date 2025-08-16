@@ -9,7 +9,7 @@ page_navbar(
       sidebar = sidebar(
         width = 300,
         fileInput("train", "Dataset:", accept = ".csv"),
-        sliderInput("k", "K:", min = 1L, max = 4L, value = 2L, step = 1L),
+        sliderInput("k", "K:", min = 1L, max = 2L, value = 1L, step = 1L),
         actionButton("run_train", "Train!", icon("robot"))
       ),
        navset_card_underline(
@@ -27,7 +27,7 @@ page_navbar(
       sidebar = sidebar(
         width = 300,
         fileInput("test", "Dataset:", accept = ".csv"),
-        selectInput("confidence", "Confidence:", choices = c(80, 90, 95, 99)),
+        selectInput("confidence", "Confidence:", choices = c(80, 90, 95, 99), selected = 99),
         sliderInput("epsilon", "Epsilon:", min = 0.0, max = 1.0, value = 0.0, step = 0.1),
         actionButton("run_test", "Test!", icon("chart-simple"))
       ),

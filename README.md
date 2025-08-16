@@ -1,6 +1,6 @@
 # 📈 Time-Series Anomaly Detection Dashboard
 
-This project is a Shiny web application designed for training and testing a time-series model to detect outliers. The app leverages a Fourier Transform-based time-series linear model (tslm) to forecast future values and identify anomalies. It's a powerful tool for analyzing univariate time-series data, making it ideal for monitoring sensor data, stock prices, or any other sequential data.
+This project is a Shiny web application designed for training and testing a time-series model to detect outliers. The app leverages a linear combination of Fourier terms (tslm) to forecast future values and identify anomalies. It's a powerful tool for analyzing univariate time-series data, making it ideal for monitoring sensor data, stock prices, or any other sequential data.
 
 ## 🚀 Getting Started
 
@@ -8,16 +8,16 @@ To run this application, you'll need Docker. If you don't have it, you can downl
 
 **Clone the Repository**: First, clone the project from its repository.
 
-    git clone <repository_url>
-    cd <repository_name>
+    git clone https://github.com/AbrJA/anomalies-dashboard.git
+    cd anomalies-dashboard
 
 **Build the Docker Image**: Navigate to the project directory in your terminal and build the Docker image. This process might take a few minutes as it downloads and installs all the necessary dependencies.
 
-    docker build -t sensor-app .
+    docker build -t anomaly-dashboard .
 
 **Run the Docker Container**: Once the image is built, run the application as a Docker container.
 
-    docker run -p 8000:8000 sensor-app
+    docker run -p 8000:8000 --name anomaly-dashboard-cont anomaly-dashboard
 
 **Access the App**: Open your web browser and navigate to http://localhost:8000 to access the application.
 
@@ -75,5 +75,4 @@ The application relies on several key R packages:
 
 - plotly: Creates interactive, professional-looking plots.
 
-- anomalyr: A custom package that contains the Metric and Model classes used for the time-series forecasting logic a direct fork from occmundial/healthr package.
-
+- anomalyr: A custom package that contains the Param, Metric and Model classes used for the time-series forecasting logic a direct fork from occmundial/healthr package.
