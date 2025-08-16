@@ -11,6 +11,12 @@ To run this application, you'll need Docker. If you don't have it, you can downl
     git clone https://github.com/AbrJA/anomalies-dashboard.git
     cd anomalies-dashboard
 
+**Run Locally (without Docker)**: If you prefer to run the app directly in R, make sure you have R (version ≥ 4.0) and the required packages installed. Then, in your terminal:
+
+    R -e "shiny::runApp('.')"
+
+Alternatively, open RStudio, set the working directory to the project folder, and click "Run App".
+
 **Build the Docker Image**: Navigate to the project directory in your terminal and build the Docker image. This process might take a few minutes as it downloads and installs all the necessary dependencies.
 
     docker build -t anomaly-dashboard .
