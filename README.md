@@ -13,7 +13,7 @@ To run this application, you'll need Docker. If you don't have it, you can downl
 
 **Run Locally (without Docker)**: If you prefer to run the app directly in R, make sure you have R (version ≥ 4.0) and the required packages installed. Then, in your terminal:
 
-    R -e "shiny::runApp('.')"
+    R -e "shiny::runApp('./app')"
 
 Alternatively, open RStudio, set the working directory to the project folder, and click "Run App".
 
