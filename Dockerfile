@@ -6,14 +6,12 @@ RUN installr -d -t "curl-dev gfortran" plotly
 RUN installr -d bslib
 RUN installr -d DT
 
-WORKDIR /app
+WORKDIR /detector
 
-ENV HOME=/app
+ENV HOME=/detector
 
-COPY global.r .
-COPY server.r .
-COPY ui.r .
+COPY app ./app
 
 EXPOSE 8000
 
-CMD ["R", "-e", "shiny::runApp('/app', host = '0.0.0.0', port = 8000)"]
+CMD ["R", "-e", "shiny::runApp('/detector/app', host = '0.0.0.0', port = 8000)"]
