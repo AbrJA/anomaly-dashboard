@@ -82,3 +82,11 @@ The application relies on several key R packages:
 - plotly: Creates interactive, professional-looking plots.
 
 - anomalyr: A custom package that contains the Param, Metric and Model classes used for the time-series forecasting logic a direct fork from occmundial/healthr package.
+
+## 🖼️ Screenshot
+
+Below is an example screenshot of the dashboard interface:
+
+![Anomaly Detection Dashboard Screenshot](assets/screenshot.png)
+
+*The dashboard features interactive plots, data tables, and controls for training and testing your time-series model.*
