@@ -1,7 +1,8 @@
 library(anomalyr)
 library(data.table)
 
-metric <- Metric$new()
+## Add validation with param and metric
+# metric <- Metric$new()
 model <- Model$new()
 date <- "2025-08-24"
 
@@ -39,12 +40,12 @@ function(input, output, session) {
     req(data_train())
     dt <- data_train()
     dt_summary <- dt[, .(count = .N,
-                          nas = sum(is.na(value)),
-                          mean = mean(value, na.rm = TRUE),
-                          median = median(value, na.rm = TRUE),
-                          sd = sd(value, na.rm = TRUE),
-                          min = min(value, na.rm = TRUE),
-                          max = max(value, na.rm = TRUE))]
+                         nas = sum(is.na(value)),
+                         mean = mean(value, na.rm = TRUE),
+                         median = median(value, na.rm = TRUE),
+                         sd = sd(value, na.rm = TRUE),
+                         min = min(value, na.rm = TRUE),
+                         max = max(value, na.rm = TRUE))]
     datatable(dt_summary[, lapply(.SD, function(x) round(x, 2))], options = list(dom = "t"))
   })
 
