@@ -1,4 +1,5 @@
 library(anomalyr)
+library(checkmate)
 library(data.table)
 
 ## Add validation with param and metric
@@ -11,9 +12,7 @@ function(input, output, session) {
     file <- input$train
     if (is.null(file)) return(NULL)
     dt <- fread(file$datapath)
-    if (all(c("timestamp", "value") %in% colnames(dt))) {
-      stop("Dataset must contain 'timestamp' and 'value' columns.")
-    }
+    assertSubset(c("timestamp", "value"), choices = colnames(dt))
     setorder(dt, timestamp)
     return(dt)
   })
@@ -74,9 +73,7 @@ function(input, output, session) {
     file <- input$test
     if (is.null(file)) return(NULL)
     dt <- fread(file$datapath)
-    if (all(c("timestamp", "value") %in% colnames(dt))) {
-      stop("Dataset must contain 'timestamp' and 'value' columns.")
-    }
+    assertSubset(c("timestamp", "value"), choices = colnames(dt))
     setorder(dt, timestamp)
     return(dt)
   })
